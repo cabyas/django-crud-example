@@ -1,0 +1,20 @@
+{% extends 'languages/layout/base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">
+        {% if not edit %}
+            🆕 Add a new Learned Language
+        {% else %}
+            ✏ Edit a Language
+        {% endif %}
+    </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="float-right">
+            <a href="{% url 'languages:home' %}" class="btn btn-secondary">Back</a>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </form>
+{% endblock %}

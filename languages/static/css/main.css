@@ -1,0 +1,45 @@
+.main-content {
+    padding-top: 5em;
+    padding-bottom: 8em;
+}
+
+.empty-languages {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 2em;
+}
+
+.delete-msg {
+    font-size: 1.8em;
+    margin-top: 5rem;
+}
+
+.footer {
+    background: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    margin-top: 5em;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+form p > label {
+    width: 29%;
+}
+
+form p > input, select {
+    width: 70%;
+}
+form p > textarea {
+    width: 100%;
+}
+form p > input[type="checkbox"] {
+    width: auto
+}
+form .helptext {
+    color: #b1b1b1;
+    font-size: .9em;
+}

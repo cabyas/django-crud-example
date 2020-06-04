@@ -1,0 +1,35 @@
+{% extends 'languages/layout/base.html' %}
+
+{% block content %}
+    <h1 class="mb-3">Language: {{ language.name }}</h1>
+    <a href="{% url 'languages:home' %}">👈 Back</a>
+    •
+    <a href="{% url 'languages:language_update' language.pk %}">✏ Edit</a>
+    •
+    <a href="{% url 'languages:language_delete' language.pk %}">😥 Delete</a>
+    <hr />
+
+    <p>
+        🦄 This programming language is 
+        {% if language.compiled %}compiled{% else %}interpreted{% endif %}.
+    </p>
+
+    <p>
+        📅
+        {% if language.learned_at %}
+            I learned {{ language.name }} at {{ language.learned_at | date:'SHORT_DATE_FORMAT'}}
+        {% else %}
+            I think I don't remeber when I learned this language 🤔🤔
+        {% endif %}
+    </p>
+
+    <p>
+        🐱‍🏍 The main paradigm of this language is {{ language.main_paradigm }}
+    </p>
+
+    {% if language.observations %}
+        <h4 class="mt-5">👀 Observations:</h4>        
+        <p>{{ language.observations }}</p>
+    {% endif %}
+    
+{% endblock  %}

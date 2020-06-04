@@ -1,0 +1,51 @@
+{% extends 'languages/layout/base.html' %}
+
+{% block content %}
+    {% if object_list %}
+        <h2 class="mb-4">Programming Languages I have learned 😎</h2>
+    {% endif %}
+    
+    {% for language in object_list %}
+        <div class="mb-3">
+            👉 {{ language.name }} 
+            - 
+            <a href="{% url 'languages:language_detail' language.pk %}">👁 See</a>
+            |
+            <a href="{% url 'languages:language_update' language.pk %}">✏ Edit</a>
+            |
+            <a href="{% url 'languages:language_delete' language.pk %}">✏ Delete</a>
+        </div>
+    {% empty %}
+        <div class="empty-languages">You haven't learned any Programming Language yet 😥</div>
+    {% endfor %}
+
+    {% if page_obj.has_previous or page_obj.has_next %}
+        <nav class="mt-4">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                {% endif %}
+                <li class="page-item disabled"><a class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a></li>
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endblock  %}

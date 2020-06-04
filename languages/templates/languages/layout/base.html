@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}Django CRUD{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'languages:home' %}">Django CRUD</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'languages:language_create' %}">➕ Add Language</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        {% block content %}
+        {% endblock  %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            Django Example made with ❤ by <a href="https://twitter.com/yasiel9506">Yasiel Cabrera</a>
+        </div>
+    </footer>
+  </body>
+</html>
