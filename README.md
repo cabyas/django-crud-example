@@ -1,5 +1,7 @@
 A simple example to help to understand how Generic Views works in Django.
 
+Change to `fbv-vs-cbv` branch to see the same implementation using Class-based Views and Function-based Views.
+
 ## Pages
 
 **Home Page:**
